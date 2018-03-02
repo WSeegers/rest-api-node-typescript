@@ -75,32 +75,6 @@ export default {
       tableName: getStringOption(process.env.KNEX_MIGRATIONS_TABLE, 'migrations'),
     }
   },
-  sequelize: {
-    development: {
-      username: getStringOption(process.env.DEV_DB_USERNAME, 'root'),
-      password: getStringOption(process.env.DEV_DB_PASSWORD,'password'),
-      database: getStringOption(process.env.DEV_DB_NAME,'database_dev'),
-      host:  getStringOption(process.env.DEV_DB_HOSTNAME,'localhost'),
-      dialect: getStringOption(process.env.DEV_DB_DIALECT,'mysql'),
-      operatorsAliases: getBooleanOption(process.env.DEV_DB_OPERATOR_ALIASES, false)
-    },
-    test: {
-      username: getStringOption(process.env.TEST_DB_USERNAME,'root'),
-      password: getStringOption(process.env.TEST_DB_PASSWORD,'root'),
-      database: getStringOption(process.env.TEST_DB_NAME,'database_test'),
-      host: getStringOption(process.env.TEST_DB_HOSTNAME,'localhost'),
-      dialect: getStringOption(process.env.TEST_DB_DIALECT,'sqlite'),
-      operatorsAliases: getBooleanOption(process.env.TEST_DB_OPERATOR_ALIASES, false)
-    },
-    production: {
-      username: getStringOption(process.env.PROD_DB_USERNAME,'root'),
-      password: getStringOption(process.env.PROD_DB_PASSWORD,'password'),
-      database: getStringOption(process.env.PROD_DB_NAME,'database_prod'),
-      host: getStringOption(process.env.PROD_DB_HOSTNAME,'localhost'),
-      dialect: getStringOption(process.env.PROD_DB_DIALECT,'sqlite'),
-      operatorsAliases: getBooleanOption(process.env.PROD_DB_OPERATOR_ALIASES, false)
-    }
-  },
   modelRepo: {
     name: getStringOption(defaultTo<any>(
       process.env.MODEL_REPO_NAME

@@ -1,13 +1,13 @@
 import Config from './Config';
 import Service from './Service';
 import {login, register, forgetPassword, resetPassword} from './auth';
-import {createUser, getUserById, getUserByEmail, getUsers, updateUser, deleteUserById, assignUserRole, revokeUserRole} from './users';
-import {createPost, getPostById, getPosts, updatePost, deletePostById} from './posts';
-import {createComment, getCommentById, getComments, updateComment, deleteCommentById} from './comments';
-import {createRole, getRoleById, getRoles, updateRole, deleteRoleById, revokeRolePermission, assignRolePermission} from './roles';
-import {getUserPermissions, createUserPermissions, createPermission, getPermissionById, getPermissions, updatePermission, deletePermissionById, removeRolePermission} from './permissions';
+import {createUser, getUser, getUsers, updateUser, deleteUser, assignUserRole, revokeUserRole} from './users';
+import {createPost, getPost, getPosts, updatePost, deletePost} from './posts';
+import {createComment, getComment, getComments, updateComment, deleteComment} from './comments';
+import {createRole, getRole, getRoles, updateRole, deleteRole, revokeRolePermission, assignRolePermission} from './roles';
+import {getUserPermissions, createUserPermissions, createPermission, getPermission, getPermissions, updatePermission, deletePermission} from './permissions';
 import {migrate, rollback, clearService} from './utils';
-import {getUserResetPasswordTokens,createResetPasswordToken, getResetPasswordTokenByToken} from './resetPasswordTokens';
+import {getResetPasswordTokens, createResetPasswordToken, getResetPasswordToken} from './resetPasswordTokens';
 
 export default (config: Config): Service => {
   return {
@@ -16,44 +16,43 @@ export default (config: Config): Service => {
     forgetPassword: forgetPassword(config),
     resetPassword: resetPassword(config),
 
-    getResetPasswordTokenByToken: getResetPasswordTokenByToken(config),
     createResetPasswordToken: createResetPasswordToken(config),
-    getUserResetPasswordTokens: getUserResetPasswordTokens(config),
-
+    getResetPasswordTokens: getResetPasswordTokens(config),
+    getResetPasswordToken: getResetPasswordToken(config),
+    
     createUser: createUser(config),
-    getUserById: getUserById(config),
-    getUserByEmail: getUserByEmail(config),
+    getUser: getUser(config),
     getUsers: getUsers(config),
     updateUser: updateUser(config),
-    deleteUserById: deleteUserById(config),
+    deleteUser: deleteUser(config),
     assignUserRole: assignUserRole(config),
     revokeUserRole: revokeUserRole(config),
 
     createPost: createPost(config),
-    getPostById: getPostById(config),
+    getPost: getPost(config),
     getPosts: getPosts(config),
     updatePost: updatePost(config),
-    deletePostById: deletePostById(config),
+    deletePost: deletePost(config),
     assignRolePermission: assignRolePermission(config),
     revokeRolePermission: revokeRolePermission(config),
 
     createComment: createComment(config),
-    getCommentById: getCommentById(config),
+    getComment: getComment(config),
     getComments: getComments(config),
     updateComment: updateComment(config),
-    deleteCommentById: deleteCommentById(config),
+    deleteComment: deleteComment(config),
 
     createRole: createRole(config),
-    getRoleById: getRoleById(config),
+    getRole: getRole(config),
     getRoles: getRoles(config),
     updateRole: updateRole(config),
-    deleteRoleById: deleteRoleById(config),
+    deleteRole: deleteRole(config),
 
     createPermission: createPermission(config),
-    getPermissionById: getPermissionById(config),
+    getPermission: getPermission(config),
     getPermissions: getPermissions(config),
     updatePermission: updatePermission(config),
-    deletePermissionById: deletePermissionById(config),
+    deletePermission: deletePermission(config),
     getUserPermissions: getUserPermissions(config),
     createUserPermissions: createUserPermissions(config),
   

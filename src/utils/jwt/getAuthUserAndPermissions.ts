@@ -28,8 +28,10 @@ export default async(options: Options): Promise<AuthData>=> {
     const secret = options.secretOrKey || config.jwt.secret;
     const {data}: any = jwt.verify(token, secret);
     
-    const user: any = await options.service.getUserById({id: data.id});
-    const permissions: any[] = await options.service.getUserPermissions({userId: user.id});
+    const user: any = await options.service.getUser({id: data.id});
+    const permissions: any[] = await options.service.getPermissions({
+      filter: {userId: user.id }
+    });
 
     return Promise.resolve({user, permissions});
   } catch (err) {

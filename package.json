@@ -123,7 +123,7 @@
     "mapCoverage": true,
     "testMatch": [
      
-      "<rootDir>/src/presenter/express/auth/register/*.test.(ts|js)"
+      "<rootDir>/src/presenter/express/users/createUser/*.test.(ts|js)"
     ]
   }
 }

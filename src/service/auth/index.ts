@@ -1,23 +1,23 @@
 import login from './login';
-import loginSignature from './login/Signature';
+import LoginSignature from './login/Signature';
 
 import register from './register';
-import registerSignature from './register/Signature';
+import RegisterSignature from './register/Signature';
 
 import forgetPassword from './forgetPassword';
-import forgetPasswordSignature from './forgetPassword/Signature';
+import ForgetPasswordSignature from './forgetPassword/Signature';
 
 import resetPassword from './resetPassword';
-import resetPasswordSignature from './resetPassword/Signature';
+import ResetPasswordSignature from './resetPassword/Signature';
 
 export {
   login,
-  loginSignature,
+  LoginSignature,
   register,
-  registerSignature,
+  RegisterSignature,
   forgetPassword,
-  forgetPasswordSignature,
+  ForgetPasswordSignature,
   resetPassword,
-  resetPasswordSignature
+  ResetPasswordSignature
 }
 

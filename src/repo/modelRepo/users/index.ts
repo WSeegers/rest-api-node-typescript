@@ -1,16 +1,15 @@
 import CreateUserSignature from './createUser/Signature';
-import DeleteUserByIdSignature from './deleteUserById/Signature';
-import GetUserByIdSignature from './getUserById/Signature';
-import GetUserByEmailSignature from './getUserByEmail/Signature';
+import DeleteUserSignature from './deleteUser/Signature';
+import GetUserSignature from './getUser/Signature';
 import GetUsersSignature from './getUsers/Signature';
 import UpdateUserSignature from './updateUser/Signature';
 import AssignUserRoleSignature from './assignUserRole/Signature';
-import RevokeUserRoleSignature from './RevokeUserRoleSignature/Signature'
+import RevokeUserRoleSignature from './revokeUserRole/Signature'
+
 export {
   CreateUserSignature,
-  DeleteUserByIdSignature,
-  GetUserByIdSignature,
-  GetUserByEmailSignature,
+  DeleteUserSignature,
+  GetUserSignature,
   GetUsersSignature,
   UpdateUserSignature,
   AssignUserRoleSignature,

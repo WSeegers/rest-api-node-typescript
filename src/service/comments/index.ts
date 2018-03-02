@@ -1,28 +1,28 @@
 import createComment from './createComment';
-import createCommentSignature from './createComment/Signature';
+import CreateCommentSignature from './createComment/Signature';
 
-import getCommentById from './getCommentById';
-import getCommentByIdSignature from './getCommentById/Signature';
+import getComment from './getComment';
+import GetCommentSignature from './getComment/Signature';
 
 import getComments from './getComments';
-import getCommentsSignature from './getComments/Signature';
+import GetCommentsSignature from './getComments/Signature';
 
 import updateComment from './updateComment';
-import updateCommentSignature from './updateComment/Signature';
+import UpdateCommentSignature from './updateComment/Signature';
 
-import deleteCommentById from './deleteCommentById';
-import deleteCommentByIdSignature from './deleteCommentById/Signature';
+import deleteComment from './deleteComment';
+import DeleteCommentSignature from './deleteComment/Signature';
 
 export {
   createComment,
-  createCommentSignature,
-  getCommentById,
-  getCommentByIdSignature,
+  CreateCommentSignature,
+  getComment,
+  GetCommentSignature,
   getComments,
-  getCommentsSignature,
+  GetCommentsSignature,
   updateComment,
-  updateCommentSignature,
-  deleteCommentById,
-  deleteCommentByIdSignature,
+  UpdateCommentSignature,
+  deleteComment,
+  DeleteCommentSignature,
 }
 

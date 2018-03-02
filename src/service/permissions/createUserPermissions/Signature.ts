@@ -3,7 +3,7 @@ import {RoleAttributes} from '../../../models/interfaces/role';
 import {PermissionAttributes} from '../../../models/interfaces/permission';
 
 export interface Options {
-    readonly userId: number;
+    readonly userId: string;
     readonly permissions: PermissionAttributes[];
     readonly role: RoleAttributes;    
 }

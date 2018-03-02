@@ -15,7 +15,7 @@ export default (service: Service, permissionName: string): Promise<any> => {
       await service.createUserPermissions({userId: user.id, permissions: [permission], role });
       resolve(user);
     }catch(e){
-      console.log(e);
+      console.log(e, e.message);
       reject(e);
     }
     

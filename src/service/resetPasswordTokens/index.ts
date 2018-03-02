@@ -1,8 +1,8 @@
 import createResetPasswordToken from './createResetPasswordToken';
 import CreateResetPasswordTokenSignature from './createResetPasswordToken/Signature';
 
-import getResetPasswordTokenByToken from './getResetPasswordTokenByToken';
-import GetResetPasswordTokenByTokenSignature from './getResetPasswordTokenByToken/Signature';
+import getResetPasswordToken from './getResetPasswordToken';
+import GetResetPasswordTokenSignature from './getResetPasswordToken/Signature';
 
 
 import getUserResetPasswordTokens from './getUserResetPasswordTokens';
@@ -14,7 +14,7 @@ export {
   CreateResetPasswordTokenSignature,
   getUserResetPasswordTokens,
   GetUserResetPasswordTokensSignature,
-  getResetPasswordTokenByToken,
-  GetResetPasswordTokenByTokenSignature
+  getResetPasswordToken,
+  GetResetPasswordTokenSignature
 }
 

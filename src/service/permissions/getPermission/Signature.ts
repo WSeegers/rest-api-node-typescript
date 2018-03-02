@@ -2,7 +2,7 @@ import AsyncHandler from '../../../utils/AsyncHandler';
 import {PermissionAttributes} from '../../../models/interfaces/permission';
 
 export interface Options {
-  readonly id: number;  
+  readonly id: string;  
 }
 
 type Signature = AsyncHandler<Options, PermissionAttributes>;

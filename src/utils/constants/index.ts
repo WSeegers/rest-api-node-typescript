@@ -26,7 +26,7 @@ export const AUTH_PARAM_NAME:string  = 'auth_token';
 export const AUTH_SCHEME_NAME:string  = 'Bearer';
 export const MAIL_RECOVERY_PASSWORD_SUBJECT:string  = 'Reset Password Link';
 export const MAIL_PASSWORD_CHANGED_SUBJECT:string  = 'Password Changed';
-
+export const TABLE_NAMES: string[] = ['users', 'posts', 'comments', 'roles', 'user_role','permissions', 'role_permission','reset_password_tokens'];
 export const VARCHAR_FIELD_LENGTH: number = 255;
 export const TEXT_FIELD_LENGTH: number = 21844;
 

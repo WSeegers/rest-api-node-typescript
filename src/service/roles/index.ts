@@ -1,38 +1,38 @@
 import createRole from './createRole';
-import createRoleSignature from './createRole/Signature';
+import CreateRoleSignature from './createRole/Signature';
 
-import getRoleById from './getRoleById';
-import getRoleByIdSignature from './getRoleById/Signature';
+import getRole from './getRole';
+import GetRoleSignature from './getRole/Signature';
 
 import getRoles from './getRoles';
-import getRolesSignature from './getRoles/Signature';
+import GetRolesSignature from './getRoles/Signature';
 
 import updateRole from './updateRole';
-import updateRoleSignature from './updateRole/Signature';
+import UpdateRoleSignature from './updateRole/Signature';
 
-import deleteRoleById from './deleteRoleById';
-import deleteRoleByIdSignature from './deleteRoleById/Signature';
+import deleteRole from './deleteRole';
+import DeleteRoleSignature from './deleteRole/Signature';
 
 import assignRolePermission from './assignRolePermission';
-import assignRolePermissionSignature from './assignRolePermission/Signature';
+import AssignRolePermissionSignature from './assignRolePermission/Signature';
 
 import revokeRolePermission from './revokeRolePermission';
-import revokeRolePermissionSignature from './revokeRolePermission/Signature';
+import RevokeRolePermissionSignature from './revokeRolePermission/Signature';
 
 export {
   createRole,
-  createRoleSignature,
-  getRoleById,
-  getRoleByIdSignature,
+  CreateRoleSignature,
+  getRole,
+  GetRoleSignature,
   getRoles,
-  getRolesSignature,
+  GetRolesSignature,
   updateRole,
-  updateRoleSignature,
-  deleteRoleById,
-  deleteRoleByIdSignature,
+  UpdateRoleSignature,
+  deleteRole,
+  DeleteRoleSignature,
   assignRolePermission,
-  assignRolePermissionSignature,
+  AssignRolePermissionSignature,
   revokeRolePermission,
-  revokeRolePermissionSignature,
+  RevokeRolePermissionSignature,
 }
 

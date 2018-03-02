@@ -18,7 +18,7 @@ export default interface Service {
   readonly resetPassword: resetPasswordSignature;
 
   readonly createUser: createUserSignature;
-  readonly getUserById: getUserByIdSignature;
+  readonly getUser: getUserByIdSignature;
   readonly getUserByEmail: getUserByEmailSignature;
   readonly getUsers: getUsersSignature;
   readonly updateUser: updateUserSignature;

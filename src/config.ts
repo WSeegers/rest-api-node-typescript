@@ -6,6 +6,8 @@ export interface Config {
   lang: string;
   express: any;
   sequelize: any;
+  knex: any;
+  knexCommon: any;
   winston: any;
   jwt: any;
   mail: any;
@@ -38,6 +40,41 @@ export default {
     to: getStringOption(process.env.TEST_MAIL_TO, 'support@test.com'),
     port:  getNumberOption(process.env.TEST_MAIL_PORT, 1025)
   },
+  knex: {
+    development: {
+      client: getStringOption(process.env.DEV_DB_user, 'mysql'),
+      connection: {
+        user: getStringOption(process.env.DEV_DB_user, 'root'),
+        password: getStringOption(process.env.DEV_DB_PASSWORD,'password'),
+        database: getStringOption(process.env.DEV_DB_NAME,'database_dev'),
+        host:  getStringOption(process.env.DEV_DB_HOSTNAME,'localhost'),
+      }
+    },
+    test: {
+      client: getStringOption(process.env.DEV_DB_user, 'sqlite3'),
+      connection: {
+        filename: ":memory:"
+      }
+    },
+    production: {
+      client: getStringOption(process.env.DEV_DB_user, 'mysql'),
+      connection: {
+        user: getStringOption(process.env.PROD_DB_USERNAME,'root'),
+        password: getStringOption(process.env.PROD_DB_PASSWORD,'password'),
+        database: getStringOption(process.env.PROD_DB_NAME,'database_prod'),
+        host: getStringOption(process.env.PROD_DB_HOSTNAME,'localhost'),
+      }
+    }
+  },
+  knexCommon: {
+    debug: false,
+    useNullAsDefault: true,
+    migrations: {
+      directory: `${process.cwd()}/src/migrations`,
+      extension: 'ts',
+      tableName: getStringOption(process.env.KNEX_MIGRATIONS_TABLE, 'migrations'),
+    }
+  },
   sequelize: {
     development: {
       username: getStringOption(process.env.DEV_DB_USERNAME, 'root'),
@@ -67,7 +104,7 @@ export default {
   modelRepo: {
     name: getStringOption(defaultTo<any>(
       process.env.MODEL_REPO_NAME
-    ), 'sequelize'),
+    ), 'knex'),
   },
   mailRepo: {
     name: getStringOption(defaultTo<any>(

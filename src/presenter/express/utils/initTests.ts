@@ -29,8 +29,9 @@ app.use(API_ROUTE_V1, presenterFacade);
 const request = createSupertest(app);
 
 export default () => {
-
+  
   beforeAll(async() => {
+  
     await service.rollback();
     await service.migrate();
   });

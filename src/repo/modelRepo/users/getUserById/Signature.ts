@@ -3,7 +3,7 @@ import * as SequelizeStatic from 'sequelize';
 import { UserAttributes} from '../../../../models/interfaces/user';
 
 export interface Options {
-    readonly id: number;
+    readonly id: string;
 }
 
 type Signature = AsyncHandler<Options,UserAttributes>;

@@ -1,7 +1,7 @@
 import AsyncHandler from '../../../utils/AsyncHandler';
 
 export interface Options {
-  readonly id: number;  
+  readonly id: string;  
 }
 
 type Signature = AsyncHandler<Options, any>;

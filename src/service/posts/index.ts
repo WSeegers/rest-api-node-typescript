@@ -1,28 +1,28 @@
 import createPost from './createPost';
-import createPostSignature from './createPost/Signature';
+import CreatePostSignature from './createPost/Signature';
 
-import getPostById from './getPostById';
-import getPostByIdSignature from './getPostById/Signature';
+import getPost from './getPost';
+import GetPostSignature from './getPost/Signature';
 
 import getPosts from './getPosts';
-import getPostsSignature from './getPosts/Signature';
+import GetPostsSignature from './getPosts/Signature';
 
 import updatePost from './updatePost';
-import updatePostSignature from './updatePost/Signature';
+import UpdatePostSignature from './updatePost/Signature';
 
-import deletePostById from './deletePostById';
-import deletePostByIdSignature from './deletePostById/Signature';
+import deletePost from './deletePost';
+import DeletePostSignature from './deletePost/Signature';
 
 export {
   createPost,
-  createPostSignature,
-  getPostById,
-  getPostByIdSignature,
+  CreatePostSignature,
+  getPost,
+  GetPostSignature,
   getPosts,
-  getPostsSignature,
+  GetPostsSignature,
   updatePost,
-  updatePostSignature,
-  deletePostById,
-  deletePostByIdSignature,
+  UpdatePostSignature,
+  deletePost,
+  DeletePostSignature,
 }
 

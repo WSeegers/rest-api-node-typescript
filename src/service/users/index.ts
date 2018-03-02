@@ -1,43 +1,38 @@
 import createUser from './createUser';
-import createUserSignature from './createUser/Signature';
+import CreateUserSignature from './createUser/Signature';
 
-import getUserById from './getUserById';
-import getUserByIdSignature from './getUserById/Signature';
-
-import getUserByEmail from './getUserByEmail';
-import getUserByEmailSignature from './getUserByEmail/Signature';
+import getUser from './getUser';
+import GetUserSignature from './getUser/Signature';
 
 import getUsers from './getUsers';
-import getUsersSignature from './getUsers/Signature';
+import GetUsersSignature from './getUsers/Signature';
 
 import updateUser from './updateUser';
-import updateUserSignature from './updateUser/Signature';
+import UpdateUserSignature from './updateUser/Signature';
 
-import deleteUserById from './deleteUserById';
-import deleteUserByIdSignature from './deleteUserById/Signature';
+import deleteUser from './deleteUser';
+import DeleteUserSignature from './deleteUser/Signature';
 
 import assignUserRole from './assignUserRole';
-import assignUserRoleSignature from './assignUserRole/Signature';
+import AssignUserRoleSignature from './assignUserRole/Signature';
 
 import revokeUserRole from './revokeUserRole';
-import revokeUserRoleSignature from './revokeUserRole/Signature';
+import RevokeUserRoleSignature from './revokeUserRole/Signature';
 
 export {
   createUser,
-  createUserSignature,
-  getUserById,
-  getUserByIdSignature,
-  getUserByEmail,
-  getUserByEmailSignature,
+  CreateUserSignature,
+  getUser,
+  GetUserSignature,
   getUsers,
-  getUsersSignature,
+  GetUsersSignature,
   updateUser,
-  updateUserSignature,
-  deleteUserById,
-  deleteUserByIdSignature,
+  UpdateUserSignature,
+  deleteUser,
+  DeleteUserSignature,
   assignUserRole,
-  assignUserRoleSignature,
+  AssignUserRoleSignature,
   revokeUserRole,
-  revokeUserRoleSignature
+  RevokeUserRoleSignature
 }
 

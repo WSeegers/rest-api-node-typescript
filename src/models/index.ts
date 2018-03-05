@@ -1,19 +1,19 @@
-import UserAttributes from './UserAttributes';
-import RoleAttributes from './RoleAttributes';
-import PermissionAttributes from './UserAttributes';
-import UserRoleAttributes from './UserRoleAttributes';
-import RolePermissionAttributes from './RolePermissionAttributes';
-import ResetPasswordTokenAttributes from './ResetPasswordTokenAttributes';
-import PostAttributes from './PostAttributes';
-import CommentAttributes from './CommentAttributes';
+import User from './User';
+import Role from './Role';
+import Permission from './Permission';
+import UserRole from './UserRole';
+import RolePermission from './RolePermission';
+import ResetPasswordToken from './ResetPasswordToken';
+import Post from './Post';
+import Comment from './Comment';
 
 export {
-  UserAttributes,
-  RoleAttributes,
-  PermissionAttributes,
-  UserRoleAttributes,
-  RolePermissionAttributes,
-  ResetPasswordTokenAttributes,
-  PostAttributes,
-  CommentAttributes
+  User,
+  Role,
+  Permission,
+  UserRole,
+  RolePermission,
+  ResetPasswordToken,
+  Post,
+  Comment
 }

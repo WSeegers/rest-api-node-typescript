@@ -35,94 +35,94 @@ describe(__filename, () => {
     expectError(response, FORBIDDEN);
   });
 
-  it('should fail to create user with invalid user email', async () => {
-    const user = await createUserWithPermission(service, CAN_CREATE_USER);
+  // it('should fail to create user with invalid user email', async () => {
+  //   const user = await createUserWithPermission(service, CAN_CREATE_USER);
     
-    const validToken = await generateJwtToken({data: {id: user.id}});
-    const response = await request.post(`${API_ROUTE_V1}/users`)
-                                  .set('Authorization' , validToken)
-                                  .send({
-                                    email: TEST_INVALID_EMAIL
-                                  });
+  //   const validToken = await generateJwtToken({data: {id: user.id}});
+  //   const response = await request.post(`${API_ROUTE_V1}/users`)
+  //                                 .set('Authorization' , validToken)
+  //                                 .send({
+  //                                   email: TEST_INVALID_EMAIL
+  //                                 });
 
-    expectError(response, UNPROCESSABLE_ENTITY);
-  });
+  //   expectError(response, UNPROCESSABLE_ENTITY);
+  // });
 
-  it('should fail to create user with too short password', async () => {
-    const user = await createUserWithPermission(service, CAN_CREATE_USER);
+  // it('should fail to create user with too short password', async () => {
+  //   const user = await createUserWithPermission(service, CAN_CREATE_USER);
     
-    const validToken = await generateJwtToken({data: {id: user.id}});
-    const response = await request.post(`${API_ROUTE_V1}/users`)
-                                  .set('Authorization' , validToken)
-                                  .send({
-                                    email: TEST_VALID_EMAIL,
-                                    password: TEST_TOO_SHORT_PASSWORD
-                                  });
+  //   const validToken = await generateJwtToken({data: {id: user.id}});
+  //   const response = await request.post(`${API_ROUTE_V1}/users`)
+  //                                 .set('Authorization' , validToken)
+  //                                 .send({
+  //                                   email: TEST_VALID_EMAIL,
+  //                                   password: TEST_TOO_SHORT_PASSWORD
+  //                                 });
 
-    expectError(response, UNPROCESSABLE_ENTITY);
-  });
+  //   expectError(response, UNPROCESSABLE_ENTITY);
+  // });
 
 
-  it('should fail to create user without password confirmation', async () => {
-    const user = await createUserWithPermission(service, CAN_CREATE_USER);
+  // it('should fail to create user without password confirmation', async () => {
+  //   const user = await createUserWithPermission(service, CAN_CREATE_USER);
     
-    const validToken = await generateJwtToken({data: {id: user.id}});
-    const response = await request.post(`${API_ROUTE_V1}/users`)
-                                  .set('Authorization' , validToken)
-                                  .send({
-                                    email: TEST_VALID_EMAIL,
-                                    password: TEST_VALID_PASSWORD
-                                  });
-    expectError(response, UNPROCESSABLE_ENTITY);
-  });
+  //   const validToken = await generateJwtToken({data: {id: user.id}});
+  //   const response = await request.post(`${API_ROUTE_V1}/users`)
+  //                                 .set('Authorization' , validToken)
+  //                                 .send({
+  //                                   email: TEST_VALID_EMAIL,
+  //                                   password: TEST_VALID_PASSWORD
+  //                                 });
+  //   expectError(response, UNPROCESSABLE_ENTITY);
+  // });
 
-  it('should fail to create user when password and password_confirmation don\'t match', async () => {
-    const user = await createUserWithPermission(service, CAN_CREATE_USER);
+  // it('should fail to create user when password and password_confirmation don\'t match', async () => {
+  //   const user = await createUserWithPermission(service, CAN_CREATE_USER);
     
-    const validToken = await generateJwtToken({data: {id: user.id}});
-    const response = await request.post(`${API_ROUTE_V1}/users`)
-                                  .set('Authorization' , validToken)
-                                  .send({
-                                    email: TEST_VALID_EMAIL,
-                                    password: TEST_VALID_PASSWORD,
-                                    password_confirmation: TEST_DIFFERENT_VALID_PASSWORD
-                                  });
-    expectError(response, UNPROCESSABLE_ENTITY);
-  });
+  //   const validToken = await generateJwtToken({data: {id: user.id}});
+  //   const response = await request.post(`${API_ROUTE_V1}/users`)
+  //                                 .set('Authorization' , validToken)
+  //                                 .send({
+  //                                   email: TEST_VALID_EMAIL,
+  //                                   password: TEST_VALID_PASSWORD,
+  //                                   password_confirmation: TEST_DIFFERENT_VALID_PASSWORD
+  //                                 });
+  //   expectError(response, UNPROCESSABLE_ENTITY);
+  // });
 
-  it('should fail to create user when email does exists', async () => {
-    const user = await createUserWithPermission(service, CAN_CREATE_USER);
+  // it('should fail to create user when email does exists', async () => {
+  //   const user = await createUserWithPermission(service, CAN_CREATE_USER);
     
-    const validToken = await generateJwtToken({data: {id: user.id}});
-    const response = await request.post(`${API_ROUTE_V1}/users`)
-                                  .set('Authorization' , validToken)
-                                  .send({
-                                    email: user.email,
-                                    password: TEST_VALID_PASSWORD,
-                                    password_confirmation: TEST_VALID_PASSWORD
-                                  });
-    expectError(response, CONFLICT);
-  });
+  //   const validToken = await generateJwtToken({data: {id: user.id}});
+  //   const response = await request.post(`${API_ROUTE_V1}/users`)
+  //                                 .set('Authorization' , validToken)
+  //                                 .send({
+  //                                   email: user.email,
+  //                                   password: TEST_VALID_PASSWORD,
+  //                                   password_confirmation: TEST_VALID_PASSWORD
+  //                                 });
+  //   expectError(response, CONFLICT);
+  // });
 
-  it('should successfuly create user when password and password_confirmation match', async () => {
-    const user = await createUserWithPermission(service, CAN_CREATE_USER);
-    const newUser = fakeUsers({count: 1, only: [
-      'email', 'firstname', 'password', 'lastname', 'bio', 'password_confirmation'
-    ]});
-    const validToken = await generateJwtToken({data: {id: user.id}});
-    const response = await request.post(`${API_ROUTE_V1}/users`)
-                                  .set('Authorization' , validToken)
-                                  .send(newUser);
-    const createdUser = response.body;
-    const match = await verifyPassword(newUser.password, createdUser.password); 
-    expect(match).toBe(true);
-    const now = moment(new Date());
-    const correctCreatedAt = moment.duration(now.diff(response.body.created_at)).asMilliseconds() < 10000;
-    expect(createdUser.email).toEqual(newUser.email);   
-    expect(createdUser.bio).toEqual(newUser.bio);   
-    expect(createdUser.firstname).toEqual(newUser.firstname);   
-    expect(createdUser.lastname).toEqual(newUser.lastname);         
-    expect(correctCreatedAt).toBe(true);
-    expect(response.status).toBe(OK);
-  });
+  // it('should successfuly create user when password and password_confirmation match', async () => {
+  //   const user = await createUserWithPermission(service, CAN_CREATE_USER);
+  //   const newUser = fakeUsers({count: 1, only: [
+  //     'email', 'firstname', 'password', 'lastname', 'bio', 'password_confirmation'
+  //   ]});
+  //   const validToken = await generateJwtToken({data: {id: user.id}});
+  //   const response = await request.post(`${API_ROUTE_V1}/users`)
+  //                                 .set('Authorization' , validToken)
+  //                                 .send(newUser);
+  //   const createdUser = response.body;
+  //   const match = await verifyPassword(newUser.password, createdUser.password); 
+  //   expect(match).toBe(true);
+  //   const now = moment(new Date());
+  //   const correctCreatedAt = moment.duration(now.diff(response.body.created_at)).asMilliseconds() < 10000;
+  //   expect(createdUser.email).toEqual(newUser.email);   
+  //   expect(createdUser.bio).toEqual(newUser.bio);   
+  //   expect(createdUser.firstname).toEqual(newUser.firstname);   
+  //   expect(createdUser.lastname).toEqual(newUser.lastname);         
+  //   expect(correctCreatedAt).toBe(true);
+  //   expect(response.status).toBe(OK);
+  // });
 });

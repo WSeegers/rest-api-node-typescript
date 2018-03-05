@@ -4,7 +4,7 @@ import { CreateUserSignature, GetUserSignature, GetUsersSignature, UpdateUserSig
 import { CreatePostSignature, GetPostSignature, GetPostsSignature, UpdatePostSignature, DeletePostSignature  } from './posts';
 import { CreateCommentSignature, GetCommentSignature, GetCommentsSignature, UpdateCommentSignature, DeleteCommentSignature  } from './comments';
 import { CreateRoleSignature, GetRoleSignature, GetRolesSignature, UpdateRoleSignature, DeleteRoleSignature, RevokeRolePermissionSignature, AssignRolePermissionSignature  } from './roles';
-import { CreatePermissionSignature, GetPermissionSignature, GetPermissionsSignature, UpdatePermissionSignature, DeletePermissionSignature  } from './permissions';
+import { CreatePermissionSignature, CreateUserPermissionsSignature, GetPermissionSignature, GetPermissionsSignature, GetUserPermissionsSignature, UpdatePermissionSignature, DeletePermissionSignature  } from './permissions';
 import { GetResetPasswordTokensSignature, CreateResetPasswordTokenSignature, GetResetPasswordTokenSignature } from './resetPasswordTokens';
 import CommonServiceSignature from './utils/CommonServiceSignature';
 
@@ -50,6 +50,8 @@ export default interface Service {
   readonly createPermission: CreatePermissionSignature;
   readonly getPermission: GetPermissionSignature;
   readonly getPermissions: GetPermissionsSignature;
+  readonly getUserPermissions: GetUserPermissionsSignature;
+  readonly createUserPermissions: CreateUserPermissionsSignature;
   readonly updatePermission: UpdatePermissionSignature;
   readonly deletePermission: DeletePermissionSignature;
 
